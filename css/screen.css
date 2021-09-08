@@ -7,14 +7,14 @@
 \*------------------------------------*/
 
 :root {
-    /* Global colors */    
-    --global-color-back: #6dbedf;    
-    --global-color-front: white;    
+  /* Global colors */
+  --global-color-back: #6dbedf;
+  --global-color-front: white;
 
-    /* global page settings */
-    --global-html-color: var(--global-color-front);
-    --global-html-backgroundColor: var(--global-color-back);
-    --global-selection-backgroundColor: var(--global-color-front);    
+  /* global page settings */
+  --global-html-color: var(--global-color-front);
+  --global-html-backgroundColor: var(--global-color-back);
+  --global-selection-backgroundColor: var(--global-color-front);
 }
 
 /*------------------------------------*\
@@ -28,29 +28,29 @@
 */
 
 html {
-    background-color: var(--global-html-backgroundColor);
-    color: var(--global-html-color);
-    font-size: 16px;
-    line-height: 1.5;
-    font-family: sans-serif;
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  background-color: var(--global-html-backgroundColor);
+  color: var(--global-html-color);
+  font-size: 16px;
+  line-height: 1.5;
+  font-family: sans-serif;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 *,
 *:before,
 *:after {
-    box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2em;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2em;
 }
 
 /*
@@ -61,9 +61,9 @@ body {
 */
 
 ::selection {
-    background: var(--global-selection-backgroundColor);
-    color: white;
-    text-shadow: none;
+  background: var(--global-selection-backgroundColor);
+  color: white;
+  text-shadow: none;
 }
 
 /*------------------------------------*\
@@ -81,9 +81,9 @@ body {
 */
 
 .o-list-reset {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 /*
@@ -93,26 +93,26 @@ body {
 */
 
 .o-button-reset {
-    border: none;
-    margin: 0;
-    padding: 0;
-    width: auto;
-    overflow: visible;
-    background: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
 
-    /* inherit font & color from ancestor */
-    color: inherit;
-    font: inherit;
+  /* inherit font & color from ancestor */
+  color: inherit;
+  font: inherit;
 
-    /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
-    line-height: normal;
+  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+  line-height: normal;
 
-    /* Corrects font smoothing for webkit */
-    -webkit-font-smoothing: inherit;
-    -moz-osx-font-smoothing: inherit;
+  /* Corrects font smoothing for webkit */
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
 
-    /* Corrects inability to style clickable `input` types in iOS */
-    -webkit-appearance: none;
+  /* Corrects inability to style clickable `input` types in iOS */
+  -webkit-appearance: none;
 }
 
 /*
@@ -122,14 +122,14 @@ body {
 */
 
 .o-hide-accessible {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
 
 /*------------------------------------*\
@@ -141,93 +141,129 @@ body {
 */
 
 .c-robot {
-  width: 100%;
-  /* max-width: 100vh; */
-  max-height: 400px;
+  max-width: 330px;
   fill: var(--global-color-front);
-  margin-bottom: 2em;
+  margin-bottom: 2rem;
 }
 
 .c-robot__shadow {
-    fill: black;    
+  fill: var(--c-robot__shadow-color, black);
+  opacity: 0.1;
+}
+
+.c-robot--css-animated {
+  --c-robot-animation-duration: 0.75s;
+  --c-robot-animation-timing-function: ease-in-out;
+  --c-robot-animation-iteration-count: infinite;
+  --c-robot-animation-direction: alternate;
+}
+
+.c-robot--css-animated #Shadow {
+  transform-origin: 50% 100%;
+  animation-name: shadowPulse;
+  animation-duration: var(--c-robot-animation-duration);
+  animation-timing-function: var(--c-robot-animation-timing-function);
+  animation-iteration-count: var(--c-robot-animation-iteration-count);
+  animation-direction: var(--c-robot-animation-direction);
+}
+
+.c-robot--css-animated #Robot {
+  animation-name: robotHover;
+  animation-duration: var(--c-robot-animation-duration);
+  animation-timing-function: var(--c-robot-animation-timing-function);
+  animation-iteration-count: var(--c-robot-animation-iteration-count);
+  animation-direction: var(--c-robot-animation-direction);
+}
+
+@keyframes shadowPulse {
+  100% {
+    transform: scale(0.9);
+    /* transform: translate(1px, 1px); */
+  }
+}
+
+@keyframes robotHover {
+  100% {
+    transform: translateY(-2%);
+  }
 }
 
 .c-controls {
-    width: 100%;
-    max-width: 300px;
-    display: flex;
-    justify-content: space-between;
-    /* justify-content: center; */
-    align-items: center;
-    gap: 1em;
-    font-family: "roboto-mono", monospace;
-    font-size: 14px;
-    line-height: 1.5;
-    text-transform: uppercase;
+  --c-controls-button-bgcolor: hsl(0 0% 0% / 0.1);
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  font-family: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono',
+    'Ubuntu Monospace', 'Source Code Pro', 'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1rem;
+  text-transform: uppercase;
 }
 
 .c-controls__list {
-    display: flex;
-    /* gap: 1em; */
+  display: flex;
 }
 
 .c-controls__button {
-    display: flex;    
-    align-items: center;
-    justify-content: center;
-    transition: all .1s ease-in-out;
-    font-family: inherit;
-    text-transform: inherit;
-    /* outline: 1px solid red; */
-    padding: 0.5em;
-    border-radius: .25em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.1s ease-in-out;
+  font-family: inherit;
+  text-transform: inherit;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.25rem;
 }
 
 .c-controls__radio:active + .c-controls__button,
 .c-controls__button:active {
-    transform: scale(.9);
+  transform: scale(0.9);
 }
 
 .c-controls__button--pause {
-    /* border: 1px solid currentColor;
-    border-radius: 2em;
-    padding: .5em;  */
+  background-color: var(--c-controls-button-bgcolor);
+  border-radius: 2em;
+  padding: 0.5rem;
 }
 
 .c-controls__radio:focus + .c-controls__button,
 .c-controls__button:focus {
-    outline: 0;
-    box-shadow: 0 0 0 1px rgba(255,255,255,.5);
+  outline: 0;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.5);
 }
 
 .c-controls__radio:focus:not(:focus-visible) + .c-controls__button,
-.c-controls__button:focus:not(:focus-visible) {  
+.c-controls__button:focus:not(:focus-visible) {
   box-shadow: none;
 }
 
 .c-controls__radio + .c-controls__button {
-    opacity: .5;
+  opacity: 0.75;
 }
 
 .c-controls__radio:checked + .c-controls__button {
-    opacity: 1;
+  opacity: 1;
+  background-color: var(--c-controls-button-bgcolor);
 }
 
 .c-play-icon {
-    display: block;
-    width: 15px;   
+  display: block;
+  width: 1rem;
 }
 
 .c-play-icon--play {
-    display: none;
+  display: none;
 }
 
 .is-paused .c-play-icon--play {
-    display: block;
+  display: block;
 }
 
 .is-paused .c-play-icon--pause {
-    display: none;
+  display: none;
 }
 
 /*------------------------------------*\
@@ -246,61 +282,61 @@ body {
 */
 
 @media print {
-    *,
-    *:before,
-    *:after {
-        background: transparent !important;
-        color: #000 !important;
-        /* Black prints faster:
+  *,
+  *:before,
+  *:after {
+    background: transparent !important;
+    color: #000 !important;
+    /* Black prints faster:
         http://www.sanbeiji.com/archives/953 */
-        box-shadow: none !important;
-        text-shadow: none !important;
-    }
-    a,
-    a:visited {
-        text-decoration: underline;
-    }
-    a[href]:after {
-        content: " (" attr(href) ")";
-    }
-    abbr[title]:after {
-        content: " (" attr(title) ")";
-    }
-    /*
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  a[href]:after {
+    content: ' (' attr(href) ')';
+  }
+  abbr[title]:after {
+    content: ' (' attr(title) ')';
+  }
+  /*
     * Don't show links that are fragment identifiers,
     * or use the `javascript:` pseudo protocol
     */
-    a[href^="#"]:after,
-    a[href^="javascript:"]:after {
-        content: "";
-    }
-    pre {
-        white-space: pre-wrap !important;
-    }
-    pre,
-    blockquote {
-        border: 1px solid #999;
-        page-break-inside: avoid;
-    }
-    /*
+  a[href^='#']:after,
+  a[href^='javascript:']:after {
+    content: '';
+  }
+  pre {
+    white-space: pre-wrap !important;
+  }
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+  /*
     * Printing Tables:
     * http://css-discuss.incutio.com/wiki/Printing_Tables
     */
-    thead {
-        display: table-header-group;
-    }
-    tr,
-    img {
-        page-break-inside: avoid;
-    }
-    p,
-    h2,
-    h3 {
-        orphans: 3;
-        widows: 3;
-    }
-    h2,
-    h3 {
-        page-break-after: avoid;
-    }
+  thead {
+    display: table-header-group;
+  }
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
 }
