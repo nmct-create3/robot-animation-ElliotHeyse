@@ -153,79 +153,23 @@ body {
 }
 
 .c-controls {
-  /* --c-controls-button-bgcolor: hsl(0 0% 0% / 0.1); */
   width: 100%;
   max-width: 300px;
-  /* display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem; */
 }
 
-/* .c-controls__list {
-  display: flex;
-} */
-
 .c-controls__button {
-  /* transition: all 0.1s ease-in-out; */
   font-family: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
     'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
     'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
   font-size: 14px;
   line-height: 1rem;
   text-transform: uppercase;
-  /* padding: 0.5rem 0.75rem;
-  border-radius: 0.25rem; */
-}
-
-.c-controls__button--pause {
-  /* background-color: var(--c-controls-button-bgcolor); */
-  /* border-radius: 2em; */
-  /* padding: 0.5rem; */
 }
 
 .c-play-icon {
   display: block;
   width: 1rem;
 }
-
-/* 
-.c-controls__radio:active + .c-controls__button,
-.c-controls__button:active {
-  transform: scale(0.9);
-}
-
-.c-controls__radio:focus + .c-controls__button,
-.c-controls__button:focus {
-  outline: 0;
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.5);
-}
-
-.c-controls__radio:focus:not(:focus-visible) + .c-controls__button,
-.c-controls__button:focus:not(:focus-visible) {
-  box-shadow: none;
-}
-
-.c-controls__radio + .c-controls__button {
-  opacity: 0.75;
-}
-
-.c-controls__radio:checked + .c-controls__button {
-  opacity: 1;
-  background-color: var(--c-controls-button-bgcolor);
-}
-
-.c-play-icon--play {
-  display: none;
-}
-
-.is-paused .c-play-icon--play {
-  display: block;
-}
-
-.is-paused .c-play-icon--pause {
-  display: none;
-} */
 
 /*------------------------------------*\
 #UTILITIES
