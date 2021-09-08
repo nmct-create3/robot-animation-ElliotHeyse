@@ -41,9 +41,9 @@ btnPause.onclick = function () {
   btnPause.classList.toggle('is-paused')
 }
 
-btnFast.onclick = () => tl.timeScale(3)
-btnNormal.onclick = () => tl.timeScale(1.5)
-btnSlow.onclick = () => tl.timeScale(0.75)
+btnFast.onclick = () => tl.timeScale(2)
+btnNormal.onclick = () => tl.timeScale(1)
+btnSlow.onclick = () => tl.timeScale(0.5)
 
 /*
 var btnPause = document.querySelector('.js-pause')
