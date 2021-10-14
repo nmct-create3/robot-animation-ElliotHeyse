@@ -138,6 +138,11 @@ body {
     Component: Controls
 */
 
+.c-play-icon {
+  display: block;
+  width: 1rem;
+}
+
 /*------------------------------------*\
 #UTILITIES
 \*------------------------------------*/
