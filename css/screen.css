@@ -8,8 +8,13 @@
 
 :root {
   /* Global colors */
+  --global-color-back: #6dbedf;
+  --global-color-front: white;
 
   /* global page settings */
+  --global-html-color: var(--global-color-front);
+  --global-html-backgroundColor: var(--global-color-back);
+  --global-selection-backgroundColor: var(--global-color-front);
 }
 
 /*------------------------------------*\
