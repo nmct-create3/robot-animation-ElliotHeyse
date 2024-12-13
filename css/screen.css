@@ -15,6 +15,9 @@
   --global-html-color: var(--global-color-front);
   --global-html-backgroundColor: var(--global-color-back);
   --global-selection-backgroundColor: var(--global-color-front);
+
+  --robot-color: white;
+  --c-toggle-play-state: paused;
 }
 
 /*------------------------------------*\
@@ -34,6 +37,8 @@ html {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--global-html-backgroundColor);
+  color: var(--global-html-color);
 }
 
 *,
@@ -43,6 +48,9 @@ html {
 }
 
 body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
 }
 
 /*
@@ -129,19 +137,48 @@ body {
 \*------------------------------------*/
 
 /*
+    Component: Controls
+*/
+
+.c-toggle:checked {
+  --c-toggle-play-state: running;
+}
+
+/*
     Component: Robot
 */
 
 .c-robot {
+  fill: var(--robot-color);
+  max-width: 300px;
+
+  --c-robot-animation-duration: 0.75s;
+  --c-robot-animation-timing-function: ease-in-out;
+  --c-robot-animation-iteration-count: infinite;
+  --c-robot-animation-direction: alternate;
+
+  animation-name: robotHover;
+  animation-duration: var(--c-robot-animation-duration);
+  animation-timing-function: var(--c-robot-animation-timing-function);
+  animation-iteration-count: var(--c-robot-animation-iteration-count);
+  animation-direction: var(--c-robot-animation-direction);
+  /* animation-play-state: paused; */
+  animation-play-state: var(--c-toggle-play-state);
 }
 
 .c-robot__shadow {
+  fill: black;
+  opacity: 0.2;
 }
 
-
-/*
-    Component: Controls
-*/
+#Shadow {
+  animation-name: shadowPulse;
+  animation-duration: var(--c-robot-animation-duration);
+  animation-timing-function: var(--c-robot-animation-timing-function);
+  animation-iteration-count: var(--c-robot-animation-iteration-count);
+  animation-direction: var(--c-robot-animation-direction);
+  animation-play-state: var(--c-toggle-play-state);
+}
 
 /*------------------------------------*\
 #UTILITIES
@@ -150,6 +187,30 @@ body {
 /*------------------------------------*\
 #MEDIA
 \*------------------------------------*/
+
+/*
+    Keyframes
+*/
+
+@keyframes shadowPulse {
+  0% {
+    transform: translateY(2.5%);
+  }
+  100% {
+    transform: scale(0.75);
+    /* transform-origin: 50% 100%; */
+    transform: translateY(-2.5%);
+  }
+}
+
+@keyframes robotHover {
+  0% {
+    transform: translateY(2.5%);
+  }
+  100% {
+    transform: translateY(-2.5%);
+  }
+}
 
 /*
     Print styles.
